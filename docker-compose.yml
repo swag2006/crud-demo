@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  backend:
+    image: spring-boot-backend
+    build: ./backend  # Adjust path to your Spring Boot project directory
+    ports:
+      - "8080:8080"
+
+  frontend:
+    image: nuxt-frontend
+    build: ./frontend  # Adjust path to your Nuxt.js project directory
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
